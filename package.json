@@ -1,5 +1,5 @@
 {
-  "name": "LessonPlan",
+  "name": "lesson-plan",
   "version": "1.0.0",
   "description": "Full-Stack Application created for GA's SEI Course",
   "main": "server.js",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Asingerdev/LessonPlan/issues"
   },
-  "homepage": "https://github.com/Asingerdev/LessonPlan#readme"
+  "homepage": "https://github.com/Asingerdev/LessonPlan#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
