@@ -7,6 +7,8 @@ const PORT = 3000;
 require('./db/db');
 
 // Middleware
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
