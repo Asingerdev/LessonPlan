@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Teacher = require('../models/teachers');
-const Student = require('../models/students')
+const Student = require('../models/students');
 
 // Get all students
 
