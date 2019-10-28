@@ -33,7 +33,7 @@ nav {
     color: #fff; */
 }
 
-.login-modal, .signup-modal {
+.nav-modal {
     display: none;
     height: 100%;
     left: 0;
@@ -42,7 +42,7 @@ nav {
     width: 100%
 }
 
-.login-modal.open, .signup-modal.open {
+.nav-modal.open {
     display: grid;
     grid-template-rows: 100px auto 100px;
 }
@@ -55,8 +55,8 @@ nav {
     nav {
         grid-template-rows: none;
         grid-template-columns: 1fr auto auto auto;
-        /* background:  #1c1c1c;
-        color: #fff; */
+        background:  #1c1c1c;
+        color: #fff;
         text-align: right;
         justify-items: start;
         border-bottom:
@@ -97,7 +97,7 @@ nav {
         display: none;
     }
     
-    .login-modal, .signup-modal {
+    .nav-modal {
         display: none;
         height: 100%;
         left: 0;
@@ -106,7 +106,7 @@ nav {
         width: 100%
     }
     
-    .login-modal.open, .signup-modal.open {
+    .nav-modal.open {
         display: grid;
         grid-template-rows: 100px auto 100px;
     }
