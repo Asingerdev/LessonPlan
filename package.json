@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Asingerdev/LessonPlan#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose-unique-validator": "^2.0.3"
   }
 }
