@@ -11,6 +11,7 @@
 <body>
     <nav>
         <div class="logo">
+            <h1>LessonPlan</h1>
         </div>
         <hr>
         <div class="account">
@@ -18,9 +19,39 @@
             <div><strong>My Account</strong></div>
         </div>
         <hr>
-        <div class="signup">Signup</div>
+        <div class="login">
+            <a class="login-button" href="#">Login</a>
+        </div>
         <hr>
-        <div class="login">Login
+        <div class="signup">
+            <a class="signup-button" href="#">Get Started</a>
         </div>
         <hr>
     </nav>
+    <div class="login-modal">
+        <div class="modal-header">
+            <h1>Log In</h1>
+        </div>
+        <div class="modal-content">
+            <form action="/teachers/login" method="POST">
+                <input type="text" name="email" placeholder="email"><br>
+                <input type="password" name="password" placeholder="password"><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+    <div class="signup-modal">
+        <div class="modal-header">
+            <h1>Create Account</h1>
+        </div>
+        <div class="modal-content">
+            <form action="/teachers/registration" method="POST">
+                <input type="text" name="name" placeholder="name"><br>
+                <input type="text" name="email" placeholder="email"><br>
+                <input type="password" name="password" placeholder="password"><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="modal-footer"></div>
+    </div>

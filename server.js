@@ -13,6 +13,13 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
+
+// home page
+app.get('/', (req, res) => {
+    res.render('index')
+});
+
+
 app.listen(PORT, () => {
     console.log('App is running on port: ', PORT);
 })
