@@ -14,8 +14,26 @@
             <h1>LessonPlan</h1>
         </div>
         <hr>
+        <% if (req.session.logged === true) { %>
         <div class="account">
-            <div>Welcome Andrew</div>
+            <div>Welcome <%= req.session.name %> </div>
+            <div><strong>My Account</strong></div>
+        </div>
+        <hr>
+        <div class="login" style="display: none;">
+            <a class="login-button" href="#" onclick="document.getElementById('login-form').style.display='block'"
+                style="width:auto;">Login</a>
+        </div>
+        <hr>
+        <div class="signup" style="display: none;">
+            <a class="signup-button" href="#" onclick="document.getElementById('signup-form').style.display='block'"
+                style="width:auto;">Get Started</a>
+        </div>
+        <hr>
+        <% } %>
+        <% else { %>
+        <div class="account" style="display: none;">
+            <div>Welcome <%= req.session.user.name %> </div>
             <div><strong>My Account</strong></div>
         </div>
         <hr>
@@ -29,4 +47,5 @@
                 style="width:auto;">Get Started</a>
         </div>
         <hr>
+        <% } %>
     </nav>

@@ -10,12 +10,15 @@ require('./db/db');
 
 // Middleware
 app.use(session({
-    secret: "keyboard cat",
+    secret: "super-mega-hyper-cat",
     resave: false,
     saveUninitialized: false
 }));
-
-
+app.use(function (req, res, next) {
+    res.locals.session = req.session;
+    res.locals.user = req.session.user;
+    next();
+})
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
