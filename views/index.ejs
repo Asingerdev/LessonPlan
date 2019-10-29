@@ -1,7 +1,9 @@
-<%- include("partials/navbar")%>
+<%- include("partials/navbar", {
+    session: session
+})%>
 
 <div id="login-form" class="modal">
-    <form action="/teachers/login" method="POST" class="modal-content animate">
+    <form action="/auth/login" method="POST" class="modal-content animate">
         <div class="container">
             <label><b>Email</b></label><br>
             <input type="text" name="email" placeholder="Enter Email"><br>
@@ -18,7 +20,7 @@
 </div>
 
 <div id="signup-form" class="modal">
-    <form action="/teachers/registration" method="POST" class="modal-content animate">
+    <form action="/auth/registration" method="POST" class="modal-content animate">
         <div class="container">
             <label><b>Name</b></label><br>
             <input type="text" name="name" placeholder="Enter Name"><br>
@@ -37,21 +39,5 @@
 
 
 </body>
-
-<script>
-    const loginModal = document.getElementById('login-form');
-    window.onclick = function (event) {
-        if (event.target === loginModal) {
-            loginModal.style.display = "none";
-        }
-    }
-
-    const signupModal = document.getElementById('signup-form');
-    window.onclick = function (event) {
-        if (event.target === signupModal) {
-            signupModal.style.display = "none";
-        }
-    }
-</script>
 
 </html>

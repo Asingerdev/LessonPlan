@@ -7,9 +7,9 @@ const Student = require('../models/students');
 
 router.get('/', async (req, res) => {
     try {
-        const foundStudents = await Student.find({ teacher: teacher._id });
-        console.log(foundStudents);
-        res.send('Found students');
+        // const foundStudents = await Student.find({ teacher: teacher._id });
+        // console.log(foundStudents);
+        res.render('students/index');
     } catch (err) {
         console.log(err);
     }
@@ -30,3 +30,5 @@ router.post('/', async (req, res) => {
         console.log(err);
     }
 })
+
+module.exports = router;

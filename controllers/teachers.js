@@ -37,6 +37,7 @@ router.post('/registration', async (req, res) => {
         console.log(createdTeacher);
         req.session.name = createdTeacher.name
         req.session.logged = true;
+        console.log(req.session);
         res.redirect('/students');
     } catch (err) {
         console.log(err)

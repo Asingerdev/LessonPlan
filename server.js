@@ -25,13 +25,18 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-const teachersController = require('./controllers/teachers')
+const teachersController = require('./controllers/teachers');
 app.use('/auth', teachersController);
+
+const studentsController = require('./controllers/students');
+app.use('/students', studentsController);
 
 // home page
 app.get('/', (req, res) => {
     console.log(req.session);
-    res.render('index')
+    res.render('index', {
+        session: req.session
+    })
 });
 
 app.listen(PORT, () => {

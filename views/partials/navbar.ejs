@@ -6,6 +6,7 @@
     <title>LessonPlan</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -14,19 +15,14 @@
             <h1>LessonPlan</h1>
         </div>
         <hr>
-        <% if (req.session.logged === true) { %>
         <div class="account">
-            <div>Welcome <%= req.session.name %> </div>
+            <div>Welcome <%= session.name %> </div>
             <div><strong>My Account</strong></div>
         </div>
-        <form name="logout_form" id="logout_form" method="POST" action="/logout">
-            <input type="hidden" name="perform_logout" value="1">
-            <input type="submit" value="Logout" id="perform_logout_button">
-            <a href="#" style="display:none;" id="logout_link">Logout</a>
+        <form name="logout-form" id="logout-form" method="POST" action="/logout">
+            <a href="#" id="logout-link">Logout</a>
         </form>
         <hr>
-        <% } %>
-        <% else { %>
         <div class="login">
             <a class="login-button" href="#" onclick="document.getElementById('login-form').style.display='block'"
                 style="width:auto;">Login</a>
@@ -37,5 +33,4 @@
                 style="width:auto;">Get Started</a>
         </div>
         <hr>
-        <% } %>
     </nav>

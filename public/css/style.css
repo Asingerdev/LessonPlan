@@ -83,6 +83,10 @@ span.psw {
         padding: .5rem;
         display: none;
     }
+
+    #logout-form {
+        display: none;
+    }
     
     hr {
         display: none;
