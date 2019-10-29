@@ -24,6 +24,10 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+const teachersController = require('./controllers/teachers')
+app.use('/auth', teachersController);
+
 // home page
 app.get('/', (req, res) => {
     console.log(req.session);

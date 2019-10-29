@@ -42,3 +42,15 @@ router.post('/registration', async (req, res) => {
         console.log(err)
     }
 })
+
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.redirect('/');
+        }
+    })
+})
+
+module.exports = router;

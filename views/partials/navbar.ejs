@@ -19,24 +19,14 @@
             <div>Welcome <%= req.session.name %> </div>
             <div><strong>My Account</strong></div>
         </div>
-        <hr>
-        <div class="login" style="display: none;">
-            <a class="login-button" href="#" onclick="document.getElementById('login-form').style.display='block'"
-                style="width:auto;">Login</a>
-        </div>
-        <hr>
-        <div class="signup" style="display: none;">
-            <a class="signup-button" href="#" onclick="document.getElementById('signup-form').style.display='block'"
-                style="width:auto;">Get Started</a>
-        </div>
+        <form name="logout_form" id="logout_form" method="POST" action="/logout">
+            <input type="hidden" name="perform_logout" value="1">
+            <input type="submit" value="Logout" id="perform_logout_button">
+            <a href="#" style="display:none;" id="logout_link">Logout</a>
+        </form>
         <hr>
         <% } %>
         <% else { %>
-        <div class="account" style="display: none;">
-            <div>Welcome <%= req.session.user.name %> </div>
-            <div><strong>My Account</strong></div>
-        </div>
-        <hr>
         <div class="login">
             <a class="login-button" href="#" onclick="document.getElementById('login-form').style.display='block'"
                 style="width:auto;">Login</a>
