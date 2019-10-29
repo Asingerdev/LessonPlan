@@ -81,11 +81,12 @@ span.psw {
     
     div.account > div {
         padding: .5rem;
-        display: none;
     }
 
-    #logout-form {
-        display: none;
+    #logout-link {
+        padding: .5rem;
+        color: white;
+        text-decoration: none;
     }
     
     hr {

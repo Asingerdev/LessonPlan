@@ -18,8 +18,7 @@
         <div class="account">
             <div>Welcome <%= session.name %> </div>
             <div><strong>My Account</strong></div>
+            <a href="/auth/logout" id="logout-link">Logout</a>
         </div>
-        <form name="logout-form" id="logout-form" method="POST" action="/logout">
-            <a href="#" id="logout-link">Logout</a>
-        </form>
         <hr>
+    </nav>
