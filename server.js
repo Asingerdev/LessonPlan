@@ -6,6 +6,7 @@ const multer = require('multer');
 const PORT = 3000;
 require('./db/db');
 
+
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));

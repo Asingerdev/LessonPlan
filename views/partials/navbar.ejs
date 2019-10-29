@@ -20,38 +20,12 @@
         </div>
         <hr>
         <div class="login">
-            <a class="login-button" href="#">Login</a>
+            <a class="login-button" href="#" onclick="document.getElementById('login-form').style.display='block'"
+                style="width:auto;">Login</a>
         </div>
         <hr>
         <div class="signup">
-            <a class="signup-button" href="#">Get Started</a>
+            <a class="signup-button" href="#signup-form" rel="modal:open">Get Started</a>
         </div>
         <hr>
     </nav>
-    <div id="login-modal" class="nav-modal">
-        <div class="modal-header">
-            <h1>Log In</h1>
-        </div>
-        <div class="modal-content">
-            <form action="/teachers/login" method="POST">
-                <input type="text" name="email" placeholder="email"><br>
-                <input type="password" name="password" placeholder="password"><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-        <div class="modal-footer"></div>
-    </div>
-    <div id="signup-modal" class="nav-modal">
-        <div class="modal-header">
-            <h1>Create Account</h1>
-        </div>
-        <div class="modal-content">
-            <form action="/teachers/registration" method="POST">
-                <input type="text" name="name" placeholder="name"><br>
-                <input type="text" name="email" placeholder="email"><br>
-                <input type="password" name="password" placeholder="password"><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-        <div class="modal-footer"></div>
-    </div>
