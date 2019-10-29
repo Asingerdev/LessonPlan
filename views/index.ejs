@@ -3,38 +3,53 @@
 <div id="login-form" class="modal">
     <form action="/teachers/login" method="POST" class="modal-content animate">
         <div class="container">
-            <label><b>Email</b></label>
+            <label><b>Email</b></label><br>
             <input type="text" name="email" placeholder="Enter Email"><br>
             <label><b>Password</b></label>
             <input type="password" name="password" placeholder="Enter Password"><br>
             <button type="submit">Login</button>
         </div>
-
-
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('login-form').style.display='none'"
+                class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
     </form>
 </div>
 
-
-
-
-<form action="/teachers/login" method="POST" id="signup-form" class="modal">
-    <div class="modal-content">
-        <p1>Create your account</p1>
-        <input type="text" name="name" placeholder="name"><br>
-        <input type="text" name="email" placeholder="email"><br>
-        <input type="password" name="password" placeholder="password"><br>
-        <button type="submit">Submit</button>
-    </div>
-</form>
+<div id="signup-form" class="modal">
+    <form action="/teachers/registration" method="POST" class="modal-content animate">
+        <div class="container">
+            <label><b>Name</b></label><br>
+            <input type="text" name="name" placeholder="Enter Name"><br>
+            <label><b>Email</b></label><br>
+            <input type="text" name="email" placeholder="Enter Email"><br>
+            <label><b>Password</b></label>
+            <input type="password" name="password" placeholder="Enter Password"><br>
+            <button type="submit">Create Account</button>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('signup-form').style.display='none'"
+                class="cancelbtn">Cancel</button>
+        </div>
+    </form>
+</div>
 
 
 </body>
 
 <script>
-    const modal = document.getElementById('login-form');
+    const loginModal = document.getElementById('login-form');
     window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+        if (event.target === loginModal) {
+            loginModal.style.display = "none";
+        }
+    }
+
+    const signupModal = document.getElementById('signup-form');
+    window.onclick = function (event) {
+        if (event.target === signupModal) {
+            signupModal.style.display = "none";
         }
     }
 </script>
