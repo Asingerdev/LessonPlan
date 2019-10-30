@@ -13,3 +13,15 @@ window.onclick = function (event) {
         signupModal.style.display = "none";
     }
 }
+
+// Toggle song display on student profile
+
+const songList = document.getElementById('song-container');
+const songTag = document.getElementById('song-tag');
+songTag.onclick = function (event) {
+    if (songList.style.display === "none") {
+        songList.style.display = "grid";
+    } else {
+        songList.style.display = "none";
+    }
+}

@@ -42,7 +42,6 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const foundStudent = await Student.findById(req.params.id);
-        console.log(foundStudent);
         res.render('students/show', {
             student: foundStudent
         })

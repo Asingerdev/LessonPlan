@@ -2,7 +2,7 @@
 
 <header>
     <h1><%=student.name%></h1>
-    <nav>
+    <nav class="student-nav">
         <ul class="inner-nav">
             <li><a href="/students" class="nav-link">Home</a></li>
             <li><a href="/students/<%=student._id%>/edit" class="nav-link">Edit</a></li>
@@ -12,12 +12,12 @@
                         class="nav-link">Delete</a>
                 </form>
             </li>
+            <li><a href="javascript:{}" class="nav-link" id="song-tag">Songs</a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <h1>Songs</h1>
-    <section>
+    <div id="song-container">
 
-    </section>
+    </div>
 </main>

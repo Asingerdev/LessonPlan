@@ -250,11 +250,48 @@ button.student-music:hover {
     opacity: 0.7;
 }
 
+nav.student-nav {
+    background: none;
+    border-top: 5px solid #008B8B;
+    border-bottom: none;
+}
+
+ul.inner-nav {
+    margin: 0;
+    margin-left: 10px;
+    padding: 0;
+}
+
+ul.inner-nav, a.nav-link, #delete-form {
+    background-color: #fff;
+    border: 0;
+}
+
 ul.inner-nav > li, #delete-form {
     display: inline;
+    text-transform: uppercase;
+    color: black;
+    font-size: 15px;
 }
 
 a.nav-link {
+    float: left;
+    font-weight: bold;
+    color: #000;
+    margin: 0 5px 0 0;
+    background-color: #eee;
     text-decoration: none;
     font-size: 20px;
+    color: black;
+    font-size: 15px;
+}
+
+a.nav-link:link, a.nav-link:visited {
+    border-radius: 0 0 8px 8px;
+    padding: 0px 15px;
+}
+
+a.nav-link:hover {
+    background-color: #008B8B;
+    color: #fff;
 }
