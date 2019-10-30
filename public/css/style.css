@@ -250,6 +250,11 @@ button.student-music:hover {
     opacity: 0.7;
 }
 
-ul.inner-nav {
+ul.inner-nav > li, #delete-form {
     display: inline;
+}
+
+a.nav-link {
+    text-decoration: none;
+    font-size: 20px;
 }

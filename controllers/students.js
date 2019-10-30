@@ -41,7 +41,8 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const foundStudent = await Student.findById(req.param.id);
+        const foundStudent = await Student.findById(req.params.id);
+        console.log(foundStudent);
         res.render('students/show', {
             student: foundStudent
         })
@@ -54,7 +55,7 @@ router.get('/:id', async (req, res) => {
 
 router.get('/:id/edit', async (req, res) => {
     try {
-        const foundStudent = await Student.findById(req.param.id);
+        const foundStudent = await Student.findById(req.params.id);
         res.render('students/edit', {
             student: foundStudent
         })

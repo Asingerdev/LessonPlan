@@ -4,20 +4,20 @@
     <h1><%=student.name%></h1>
     <nav>
         <ul class="inner-nav">
-            <li><a href="/students">Home</a></li>
-            <li><a href="/students/<%=student._id%>/edit">Edit</a></li>
+            <li><a href="/students" class="nav-link">Home</a></li>
+            <li><a href="/students/<%=student._id%>/edit" class="nav-link">Edit</a></li>
             <li>
                 <form id="delete-form" metod="POST" action="/students/<%=student._id%>?_method=DELETE">
-                    <a href="javascript:{}" onclick="document.getElementById('delete-form').submit();">Delete</a>
+                    <a href="javascript:{}" onclick="document.getElementById('delete-form').submit();"
+                        class="nav-link">Delete</a>
                 </form>
             </li>
         </ul>
     </nav>
 </header>
-<p class="student-music"><button onclick="window.location.href='/students/<%=students[i]._id%>';">Profile</button></p>
 <main>
+    <h1>Songs</h1>
     <section>
 
     </section>
-
 </main>
