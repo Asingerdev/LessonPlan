@@ -13,7 +13,3 @@ window.onclick = function (event) {
         signupModal.style.display = "none";
     }
 }
-
-
-
-// Change navbar options when teacher is logged in

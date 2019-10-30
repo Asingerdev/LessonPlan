@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Student show page
+// Student profile page
 
 router.get('/:id', async (req, res) => {
     try {

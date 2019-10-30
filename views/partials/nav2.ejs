@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>LessonPlan</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
 </head>
 
 <body>
@@ -16,8 +16,8 @@
         </div>
         <hr>
         <div class="account">
-            <div>Welcome <%= session.name %> </div>
-            <div><strong>My Account</strong></div>
+            <div>Welcome, <%= session.name %> </div>
+            <div>My Account</div>
             <a href="/auth/logout" id="logout-link">Logout</a>
         </div>
         <hr>
