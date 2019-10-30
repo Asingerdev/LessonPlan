@@ -221,7 +221,7 @@ button.add-student {
     border: 1px solid black;
     border-radius: 10px; 
     margin: 0 30px;
-    background-color: #708090;
+    background-color: #aaacad;
 }
 
 h1.student-name {
@@ -250,9 +250,74 @@ button.student-music:hover {
     opacity: 0.7;
 }
 
+h1.student-profile-name {
+    margin: 5px 0 0 0;
+}
+
+h1.new-student {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+div.add-student-form {
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    padding: 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    font-family: 'Source Serif Pro', serif;
+}
+
+.add-student-form fieldset {
+    border: none;
+}
+
+.add-student-form input[type="text"] {
+    font-family: 'Source Serif Pro', serif;
+    background: rgba(255,255,255,.1);
+	border: none;
+	border-radius: 4px;
+	font-size: 15px;
+	margin: 0;
+	outline: 0;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	background-color: #e8eeef;
+	color:#8a97a0;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	margin-bottom: 30px;
+}
+
+.add-student-form input[type="submit"] {
+    position: relative;
+	display: block;
+	padding: 19px 39px 18px 39px;
+	color: #FFF;
+	margin: 0 auto;
+	background: #008B8B;
+	font-size: 18px;
+	text-align: center;
+	font-style: normal;
+	width: 100%;
+	border: 1px solid #008B8B;
+	border-width: 1px 1px 3px;
+	margin-bottom: 10px;
+}
+
+.add-student-form input[type="submit"]:hover {
+     background-color: #008B8B;
+}
+
 nav.student-nav {
     background: none;
-    border-top: 5px solid #008B8B;
+    border-top: 3px solid rgba(0, 139, 139, .8);
     border-bottom: none;
 }
 
@@ -294,4 +359,10 @@ a.nav-link:link, a.nav-link:visited {
 a.nav-link:hover {
     background-color: #008B8B;
     color: #fff;
+}
+
+h1.edit-student {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }

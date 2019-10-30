@@ -3,12 +3,16 @@
 <%- include("../partials/header2")%>
 
 <main>
-    <h1>Edit Student Profile:</h1>
-    <form action="/students/<%=student._id%>?_method=PUT" method="POST">
-        <input type="text" name="name" placeholder="Enter student's name" />
-        <input type="text" name="instrument" placeholder="Enter instrument" />
-        <input type="submit" value="Update Profile">Submit</input>
-    </form>
+    <h1 class="edit-student">Edit Student Profile:</h1>
+    <div class="add-student-form">
+        <form action="/students/<%=student._id%>?_method=PUT" method="POST">
+            <fieldset>
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" instrument="instrument" placeholder="Instrument">
+            </fieldset>
+            <input type="submit" value="Update Profile">
+        </form>
+    </div>
 </main>
 
 

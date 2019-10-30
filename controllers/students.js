@@ -65,9 +65,12 @@ router.get('/:id/edit', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const updatedStudent = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const findUpdatedStudent = Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const findFoundTeacher = Teacher.findOne({ 'students': req.params.id });
+        const [updatedStudent, foundTeacher] = await Promise.all([findUpdatedStudent, findFoundTeacher]);
         console.log(updatedStudent);
-        res.redirect('/students')
+        console.log(foundTeacher);
+        res.redirect('/students');
     } catch (err) {
         console.log(err);
     }
