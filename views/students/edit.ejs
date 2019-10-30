@@ -1,0 +1,17 @@
+<%- include("../partials/nav2")%>
+
+<%- include("../partials/header2")%>
+
+<main>
+    <h1>Edit Student Profile:</h1>
+    <form action="/students/<%=student._id%>?_method=PUT" method="POST">
+        <input type="text" name="name" placeholder="Enter student's name" />
+        <input type="text" name="instrument" placeholder="Enter instrument" />
+        <input type="submit" value="Update Profile">Submit</input>
+    </form>
+</main>
+
+
+</body>
+
+</html>
