@@ -8,7 +8,6 @@ const Student = require('../models/students');
 router.get('/', async (req, res) => {
     try {
         const foundTeacher = await Teacher.findOne({ name: req.session.name }).populate({ path: 'students' }).exec();
-        console.log(foundTeacher.students)
         res.render('students/index', {
             teacher: foundTeacher,
             students: foundTeacher.students
@@ -32,8 +31,6 @@ router.post('/', async (req, res) => {
         foundTeacher.students.push(createdStudent);
         await foundTeacher.save();
         await createdStudent.save();
-        console.log(createdStudent);
-        console.log(foundTeacher);
         res.redirect('/students')
     } catch (err) {
         console.log(err);

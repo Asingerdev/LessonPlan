@@ -1,14 +1,19 @@
 <%- include("../partials/nav2")%>
 
-<main>
-    <h2><%=teacher.name %>'s students</h2>
-    <ul>
-        <% for(let i = 0; i < students.length; i++) { %>
-        <li>
-            <a href="/students/<%=students[i]._id%>"><%=students[i].name%></a>
-        </li>
-        <% } %>
-    </ul>
+
+<header class="students-header">
+    <h1><%=teacher.name %>'s students</h1>
+    <a href="/students/new"><button class="add-student">+ Add Student</button></a>
+</header>
+<main class="student-content">
+    <% for(let i = 0; i < students.length; i++) { %>
+    <div class="student-card">
+        <h1 class="student-name"><%=students[i].name%></h1>
+        <!-- <p class="instrument"></p> -->
+        <a href="/students/<%=students[i]._id%>"></a>
+        <p><button class="student-music">Music</button></p>
+    </div>
+    <% } %>
 </main>
 </body>
 
