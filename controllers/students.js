@@ -68,8 +68,6 @@ router.put('/:id', async (req, res) => {
         const findUpdatedStudent = Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
         const findFoundTeacher = Teacher.findOne({ 'students': req.params.id });
         const [updatedStudent, foundTeacher] = await Promise.all([findUpdatedStudent, findFoundTeacher]);
-        console.log(updatedStudent);
-        console.log(foundTeacher);
         res.redirect('/students');
     } catch (err) {
         console.log(err);
@@ -80,8 +78,11 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const deletedStudent = await Student.findByIdAndRemove(req.params.id);
-        console.log(deletedStudent);
+        const deleteStudent = Student.findByIdAndRemove(req.params.id);
+        const findTeacher = Teacher.findOne({ 'students': req.params.id });
+        const [deletedStudentResponse, foundTeacher] = await Promise.all([deleteStudent, findTeacher]);
+        foundTeacher.students.remove(req.params.id);
+        await foundTeacher.save();
         res.redirect('/students')
     } catch (err) {
         console.log(err);

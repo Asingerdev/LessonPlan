@@ -5,9 +5,8 @@
             <li><a href="/students" class="nav-link">Home</a></li>
             <li><a href="/students/<%=student._id%>/edit" class="nav-link">Edit</a></li>
             <li>
-                <form id="delete-form" metod="POST" action="/students/<%=student._id%>?_method=DELETE">
-                    <a href="javascript:{}" onclick="document.getElementById('delete-form').submit();"
-                        class="nav-link">Delete</a>
+                <form id="delete-form" method="POST" action="/students/<%=student._id%>?_method=DELETE">
+                    <input class="nav-link" type="submit" value="Delete" />
                 </form>
             </li>
         </ul>
