@@ -1,1 +1,15 @@
 <%- include("../partials/nav2")%>
+
+<main>
+    <h2><%=teacher.name %>'s students</h2>
+    <ul>
+        <% for(let i = 0; i < students.length; i++) { %>
+        <li>
+            <a href="/students/<%=students[i]._id%>"><%=students[i].name%></a>
+        </li>
+        <% } %>
+    </ul>
+</main>
+</body>
+
+</html>

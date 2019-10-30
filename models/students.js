@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const studentSchema = mongoose.Schema({
-    name: String,
-    email: { type: String, lowercase: true, required: true, unique: true },
-    password: { type: String, required: true },
+    name: { type: String, required: true },
+    email: { type: String, lowercase: true, unique: true },
+    password: String,
     teacher: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Teacher'

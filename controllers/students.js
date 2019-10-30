@@ -7,28 +7,86 @@ const Student = require('../models/students');
 
 router.get('/', async (req, res) => {
     try {
-        // const foundStudents = await Student.find({ teacher: teacher._id });
-        // console.log(foundStudents);
-        res.render('students/index');
+        const foundTeacher = await Teacher.findOne({ name: req.session.name }).populate({ path: 'students' }).exec();
+        console.log(foundTeacher.students)
+        res.render('students/index', {
+            teacher: foundTeacher,
+            students: foundTeacher.students
+        });
     } catch (err) {
         console.log(err);
     }
 });
 
-// Add a student
+// Add student
 
 router.get('/new', (req, res) => {
     res.render('students/new');
-})
+});
 
 router.post('/', async (req, res) => {
     try {
-        const createdStudent = await Student.create(req.body);
-        createdStudent.teacher = req.session.id;
+        const createStudent = Student.create(req.body);
+        const findTeacher = Teacher.findOne({ name: req.session.name });
+        const [createdStudent, foundTeacher] = await Promise.all([createStudent, findTeacher]);
+        foundTeacher.students.push(createdStudent);
+        await foundTeacher.save();
+        await createdStudent.save();
         console.log(createdStudent);
+        console.log(foundTeacher);
+        res.redirect('/students')
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+// Student show page
+
+router.get('/:id', async (req, res) => {
+    try {
+        const foundStudent = await Student.findById(req.param.id);
+        res.render('students/show', {
+            student: foundStudent
+        })
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+// Student edit page
+
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const foundStudent = await Student.findById(req.param.id);
+        res.render('students/edit', {
+            student: foundStudent
+        })
     } catch (err) {
         console.log(err);
     }
 })
+
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedStudent = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        console.log(updatedStudent);
+        res.redirect('/students')
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+// Delete student
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedStudent = await Student.findByIdAndRemove(req.params.id);
+        console.log(deletedStudent);
+        res.redirect('/students')
+    } catch (err) {
+        console.log(err);
+    }
+})
+
 
 module.exports = router;
