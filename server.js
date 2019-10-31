@@ -31,6 +31,9 @@ app.use('/auth', teachersController);
 const studentsController = require('./controllers/students');
 app.use('/students', studentsController);
 
+// const songsController = require('./controllers/songs');
+// app.use('/students/songs', songsController);
+
 // home page
 app.get('/', (req, res) => {
     console.log(req.session);

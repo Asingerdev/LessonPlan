@@ -1,11 +1,15 @@
 const express = require('express');
-const router = express.Router();
+const students = express.Router();
+const songs = require('./songs');
 const Teacher = require('../models/teachers');
 const Student = require('../models/students');
 
+// Nest songs controller by attaching it as middleware
+students.use('/:id/songs', songs);
+
 // Get all students
 
-router.get('/', async (req, res) => {
+students.get('/', async (req, res) => {
     try {
         const foundTeacher = await Teacher.findOne({ name: req.session.name }).populate({ path: 'students' }).exec();
         res.render('students/index', {
@@ -19,11 +23,11 @@ router.get('/', async (req, res) => {
 
 // Add student
 
-router.get('/new', (req, res) => {
+students.get('/new', (req, res) => {
     res.render('students/new');
 });
 
-router.post('/', async (req, res) => {
+students.post('/', async (req, res) => {
     try {
         const createStudent = Student.create(req.body);
         const findTeacher = Teacher.findOne({ name: req.session.name });
@@ -39,7 +43,7 @@ router.post('/', async (req, res) => {
 
 // Student profile page
 
-router.get('/:id', async (req, res) => {
+students.get('/:id', async (req, res) => {
     try {
         const foundStudent = await Student.findById(req.params.id);
         res.render('students/show', {
@@ -52,7 +56,7 @@ router.get('/:id', async (req, res) => {
 
 // Student edit page
 
-router.get('/:id/edit', async (req, res) => {
+students.get('/:id/edit', async (req, res) => {
     try {
         const foundStudent = await Student.findById(req.params.id);
         res.render('students/edit', {
@@ -63,7 +67,7 @@ router.get('/:id/edit', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
+students.put('/:id', async (req, res) => {
     try {
         const findUpdatedStudent = Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
         const findFoundTeacher = Teacher.findOne({ 'students': req.params.id });
@@ -76,7 +80,7 @@ router.put('/:id', async (req, res) => {
 
 // Delete student
 
-router.delete('/:id', async (req, res) => {
+students.delete('/:id', async (req, res) => {
     try {
         const deleteStudent = Student.findByIdAndRemove(req.params.id);
         const findTeacher = Teacher.findOne({ 'students': req.params.id });
@@ -90,4 +94,10 @@ router.delete('/:id', async (req, res) => {
 })
 
 
-module.exports = router;
+
+// students.use('/:songId/songs', (req, res) => {
+//     req.studentId = req.params.songId;
+//     next();
+// }, songs);
+
+module.exports = students;
