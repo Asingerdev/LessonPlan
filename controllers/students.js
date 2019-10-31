@@ -94,11 +94,4 @@ students.delete('/:id', async (req, res) => {
     }
 })
 
-
-
-// students.use('/:songId/songs', (req, res) => {
-//     req.studentId = req.params.songId;
-//     next();
-// }, songs);
-
 module.exports = students;

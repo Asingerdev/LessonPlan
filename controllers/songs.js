@@ -12,13 +12,18 @@ songs.get('/', async (req, res) => {
             student: foundStudent,
             songs: foundStudent.songs
         })
-
-
-
     } catch (err) {
         console.log(err);
     }
 });
+
+// Add song
+
+songs.get('/new', (req, res) => {
+    res.render('songs/new');
+});
+
+
 
 songs.get('/:songId', (req, res) => {
 

@@ -260,13 +260,13 @@ h1.student-profile-name {
     margin: 5px 0 0 0;
 }
 
-h1.new-student {
+h1.new-student, h1.new-song {
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
 
-div.add-student-form {
+div.add-student-form, div.add-song-form {
     max-width: 500px;
     padding: 10px 20px;
     background: #f4f7f8;
@@ -277,11 +277,11 @@ div.add-student-form {
     font-family: 'Source Serif Pro', serif;
 }
 
-.add-student-form fieldset {
+.add-student-form fieldset, .add-song-form fieldset {
     border: none;
 }
 
-.add-student-form input[type="text"] {
+.add-student-form input[type="text"], .add-song-form input[type="text"] {
     font-family: 'Source Serif Pro', serif;
     background: rgba(255,255,255,.1);
 	border: none;
@@ -301,7 +301,7 @@ div.add-student-form {
 	margin-bottom: 30px;
 }
 
-.add-student-form input[type="submit"] {
+.add-student-form input[type="submit"], .add-song-form input[type="submit"] {
     position: relative;
 	display: block;
 	padding: 19px 39px 18px 39px;
@@ -317,7 +317,7 @@ div.add-student-form {
 	margin-bottom: 10px;
 }
 
-.add-student-form input[type="submit"]:hover {
+.add-student-form input[type="submit"]:hover, .add-song-form input[type="submit"]:hover {
      background-color: #008B8B;
 }
 
