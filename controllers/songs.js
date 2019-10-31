@@ -44,10 +44,16 @@ songs.post('/', async (req, res) => {
     }
 });
 
-
-
-songs.get('/:songId', (req, res) => {
-
+songs.get('/:songId', async (req, res) => {
+    try {
+        const foundStudent = await Student.findById(req.params.id).populate({ path: 'songs', match: { _id: req.params.songId } }).exec();
+        res.render('songs/show', {
+            student: foundStudent,
+            song: foundStudent.songs[0]
+        })
+    } catch (err) {
+        console.log(err);
+    }
 })
 
 module.exports = songs;

@@ -1,4 +1,4 @@
-<%- include("../partials/nav2")%>
+<%- include("../partials/nav-2")%>
 
 <header class="songs-header">
     <h1><%=student.name %>'s songs</h1>
@@ -12,7 +12,7 @@
                 <img class="song-img" src="<%=songs[i].img%>">
             </div>
             <div class="song-name">
-                <a href="songs/<%=songs[i]._id%>"><%=songs[i].name%></a>
+                <a href="/students/<%=student._id%>/songs/<%=songs[i]._id%>"><%=songs[i].name%></a>
             </div>
 
         </div>

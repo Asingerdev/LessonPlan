@@ -1,0 +1,24 @@
+<header>
+    <h1><%=student.name%></h1>
+    <nav class="song-nav">
+        <ul class="inner-nav">
+            <li><a href="/students/<%=student._id%>/songs" class="nav-link">Songs</a></li>
+            <li><a href="/students/<%=student._id%>/songs/<%=song._songId%>/edit" class="nav-link">Edit</a></li>
+            <li><a href="#" class="nav-link" onclick="document.getElementById('delete-form').style.display='block'"
+                    style="width:auto;">Delete</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="delete-form" class="modal">
+    <form action="/students/<%=student._id%>/songs/<%=song._songId%>?_method=DELETE" method="POST"
+        class="modal-content animate">
+        <div class="container">
+            <h3>Are you sure you want to delete student's song?</h3>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="submit" class="delete-button">Delete</button>
+            <button type="button" onclick="document.getElementById('delete-form').style.display='none'"
+                class="cancel-button">Cancel</button>
+        </div>
+    </form>
+</div>
