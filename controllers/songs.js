@@ -1,6 +1,6 @@
 const express = require('express');
 const songs = express.Router({ mergeParams: true });
-const Teacher = require('../models/teachers');
+const Song = require('../models/songs');
 const Student = require('../models/students');
 
 // Get all songs
@@ -19,8 +19,29 @@ songs.get('/', async (req, res) => {
 
 // Add song
 
-songs.get('/new', (req, res) => {
-    res.render('songs/new');
+songs.get('/new', async (req, res) => {
+    try {
+        const foundStudent = await Student.findById(req.params.id);
+        res.render('songs/new', {
+            student: foundStudent
+        });
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+songs.post('/', async (req, res) => {
+    try {
+        const createSong = Song.create(req.body);
+        const findStudent = Student.findById(req.params.id).populate({ path: 'songs' }).exec();
+        const [createdSong, foundStudent] = await Promise.all([createSong, findStudent]);
+        foundStudent.songs.push(createdSong);
+        await foundStudent.save();
+        await createdSong.save();
+        res.redirect('/students/' + req.params.id + '/songs');
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 

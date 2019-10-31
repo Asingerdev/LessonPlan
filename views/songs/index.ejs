@@ -2,14 +2,19 @@
 
 <header class="songs-header">
     <h1><%=student.name %>'s songs</h1>
-    <a href="/songs/new"><button class="add-song">+ Add Song</button></a>
+    <a href="/students/<%=student._id%>/songs/new"><button class="add-song">+ Add Song</button></a>
 </header>
 <main>
     <div class="song-container">
         <% for(let i = 0; i < songs.length; i++) { %>
         <div class="song-card">
-            <img class="song-img" src="<%=songs[i].img%>">
-            <a href="songs/<%=songs[i]._id%>" class="song-name"><%=songs[i].name%></a>
+            <div class="img-container">
+                <img class="song-img" src="<%=songs[i].img%>">
+            </div>
+            <div class="song-name">
+                <a href="songs/<%=songs[i]._id%>"><%=songs[i].name%></a>
+            </div>
+
         </div>
         <% } %>
     </div>

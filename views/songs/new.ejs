@@ -3,7 +3,7 @@
 <main>
     <h1 class=new-song>New Song</h1>
     <div class="add-song-form">
-        <form>
+        <form action="/students/<%=student._id%>/songs" method="POST">
             <fieldset>
                 <input type="text" name="name" placeholder="Song Name">
                 <input type="text" name="img" placeholder="Image URL">

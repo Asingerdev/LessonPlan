@@ -5,6 +5,6 @@ const songSchema = mongoose.Schema({
     img: String
 })
 
-const Song = mongoose.model('Song', teacherSchema);
+const Song = mongoose.model('Song', songSchema);
 
 module.exports = Song
