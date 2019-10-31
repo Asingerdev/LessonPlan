@@ -7,6 +7,7 @@ const Student = require('../models/students');
 // Nest songs controller by attaching it as middleware
 students.use('/:id/songs', songs);
 
+// /students/student1 / songs / song1
 // Get all students
 
 students.get('/', async (req, res) => {

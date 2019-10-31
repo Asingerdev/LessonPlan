@@ -5,8 +5,19 @@ const Student = require('../models/students');
 
 // Get all songs
 
-songs.get('/', (req, res) => {
-    console.log(req.params.id)
+songs.get('/', async (req, res) => {
+    try {
+        const foundStudent = await Student.findById(req.params.id).populate({ path: 'songs' }).exec();
+        res.render('songs/index', {
+            student: foundStudent,
+            songs: foundStudent.songs
+        })
+
+
+
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 songs.get('/:songId', (req, res) => {

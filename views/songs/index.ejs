@@ -1,5 +1,26 @@
 <%- include("../partials/nav2")%>
 
+<header class="songs-header">
+    <h1><%=student.name %>'s songs</h1>
+    <a href="/songs/new"><button class="add-song">+ Add Song</button></a>
+</header>
+<main>
+    <div class="song-container">
+        <% for(let i = 0; i < songs.length; i++) { %>
+        <div class="song-card">
+            <img class="song-img" src="<%=songs[i].img%>">
+            <h1 class="song-name"><%=songs[i].name%></h1>
+            <a href="/students/<%=students[i]._id%>"></a>
+            <p class="student-music"><button
+                    onclick="window.location.href='/students/<%=students[i]._id%>';">Profile</button>
+            </p>
+        </div>
+        <% } %>
+    </div>
+</main>
+</body>
+
+</html>
 
 </body>
 
