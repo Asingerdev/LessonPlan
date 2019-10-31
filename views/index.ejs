@@ -1,40 +1,5 @@
 <%- include("partials/nav1")%>
 
-<div id="login-form" class="modal">
-    <form action="/auth/login" method="POST" class="modal-content animate">
-        <div class="container">
-            <label><b>Email</b></label><br>
-            <input type="text" name="email" placeholder="Enter Email"><br>
-            <label><b>Password</b></label>
-            <input type="password" name="password" placeholder="Enter Password"><br>
-            <button type="submit">Login</button>
-        </div>
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('login-form').style.display='none'"
-                class="cancel-button">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-    </form>
-</div>
-
-<div id="signup-form" class="modal">
-    <form action="/auth/registration" method="POST" class="modal-content animate">
-        <div class="container">
-            <label><b>Name</b></label><br>
-            <input type="text" name="name" placeholder="Enter Name"><br>
-            <label><b>Email</b></label><br>
-            <input type="text" name="email" placeholder="Enter Email"><br>
-            <label><b>Password</b></label>
-            <input type="password" name="password" placeholder="Enter Password"><br>
-            <button type="submit">Create Account</button>
-        </div>
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('signup-form').style.display='none'"
-                class="cancel-button">Cancel</button>
-        </div>
-    </form>
-</div>
-
 
 </body>
 
