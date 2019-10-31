@@ -351,7 +351,7 @@ div.add-student-form, div.add-song-form {
      background-color: #008B8B;
 }
 
-nav.student-nav {
+nav.student-nav, nav.song-nav {
     background: none;
     border-top: 3px solid rgba(0, 139, 139, .8);
     border-bottom: none;

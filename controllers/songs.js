@@ -44,6 +44,8 @@ songs.post('/', async (req, res) => {
     }
 });
 
+// Song show page
+
 songs.get('/:songId', async (req, res) => {
     try {
         const foundStudent = await Student.findById(req.params.id).populate({ path: 'songs', match: { _id: req.params.songId } }).exec();
@@ -55,5 +57,22 @@ songs.get('/:songId', async (req, res) => {
         console.log(err);
     }
 })
+
+// Song edit page
+
+songs.get('/:songId/edit', (req, res) => {
+    console.log(req.params, 'hi');
+
+    // try {
+    //     const foundSong = await Song.findById(req.params.songId);
+    //     res.render('songs/edit', {
+    //         song: foundSong
+    //     })
+    // } catch (err) {
+    //     console.log(err);
+    // }
+});
+
+
 
 module.exports = songs;
