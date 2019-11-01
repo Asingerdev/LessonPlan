@@ -5,7 +5,7 @@
 <main>
     <h1 class="edit-song">Edit Song:</h1>
     <div class="add-song-form">
-        <form action="/students/<%=student._id%>/songs/<%=song._songId%>?_method=PUT" method="POST">
+        <form action="/students/<%=student %>/songs/<%=song._id%>?_method=PUT" method="POST">
             <fieldset>
                 <input type="text" name="name" placeholder="Name">
                 <input type="text" name="img" placeholder="Image URL">

@@ -60,19 +60,43 @@ songs.get('/:songId', async (req, res) => {
 
 // Song edit page
 
-songs.get('/:songId/edit', (req, res) => {
-    console.log(req.params, 'hi');
-
-    // try {
-    //     const foundSong = await Song.findById(req.params.songId);
-    //     res.render('songs/edit', {
-    //         song: foundSong
-    //     })
-    // } catch (err) {
-    //     console.log(err);
-    // }
+songs.get('/:songId/edit', async (req, res) => {
+    try {
+        const findSong = Song.findById(req.params.songId);
+        const findStudent = Student.findById = (req.params.id);
+        const [foundSong, foundStudent] = await Promise.all([findSong, findStudent]);
+        res.render('songs/edit', {
+            student: foundStudent,
+            song: foundSong
+        })
+    } catch (err) {
+        console.log(err);
+    }
 });
 
+songs.put('/:songId', async (req, res) => {
+    try {
+        const updatedSong = await Song.findByIdAndUpdate(req.params.songId, req.body, { new: true });
+        // res.redirect('/students/' + studentId + '/songs')
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+// Delete song
+
+songs.delete('/:songId', async (req, res) => {
+    try {
+        const deleteSong = Song.findByIdAndRemove(req.params.songId);
+        const findStudent = Student.findOne({ 'songs': req.params.songId });
+        const [deletedSongResponse, foundStudent] = await Promise.all([deleteSong, findStudent]);
+        foundStudent.songs.remove(req.params.songId);
+        await foundStudent.save();
+        console.log(foundStudent);
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 
 module.exports = songs;

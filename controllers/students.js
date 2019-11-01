@@ -72,6 +72,8 @@ students.put('/:id', async (req, res) => {
         const findUpdatedStudent = Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
         const findFoundTeacher = Teacher.findOne({ 'students': req.params.id });
         const [updatedStudent, foundTeacher] = await Promise.all([findUpdatedStudent, findFoundTeacher]);
+        await updatedStudent.save();
+        await foundTeacher.save();
         res.redirect('/students');
     } catch (err) {
         console.log(err);
