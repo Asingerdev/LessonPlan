@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const connectionString = 'mongodb://localhost/lessonPlan';
+const Grid = require('gridfs-stream');
 
 mongoose.connect(connectionString, {
     useNewUrlParser: true,
@@ -18,4 +19,13 @@ mongoose.connection.on('disconnected', () => {
 
 mongoose.connection.on('error', (err) => {
     console.log('Mongoose error: ', err);
+});
+
+// Init Gridfs
+
+let gfs;
+
+mongoose.connection.once('open', () => {
+    gfs = Grid(conn.db, mongoose.mongo);
+    gfs.collection('uploads');
 });

@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
 const PORT = 3000;
 require('./db/db');
 
@@ -45,3 +46,23 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log('App is running on port: ', PORT);
 })
+
+// Create storage engine
+const mongoose = require('mongoose');
+const connectionString = 'mongodb://localhost/lessonPlan';
+
+const storage = new GridFsStorage({
+    url: connectionString,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            const filename = file.originalname;
+            const fileInfo = {
+                filename: filename,
+                bucketName: 'uploads'
+            };
+            resolve(fileInfo);
+        });
+    }
+});
+
+const upload = multer({ storage });
