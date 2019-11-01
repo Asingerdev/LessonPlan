@@ -23,9 +23,9 @@ mongoose.connection.on('error', (err) => {
 
 // Init Gridfs
 
-let gfs;
+// let gfs;
 
-mongoose.connection.once('open', () => {
-    gfs = Grid(conn.db, mongoose.mongo);
-    gfs.collection('uploads');
-});
+// mongoose.connection.once('open', () => {
+//     gfs = Grid(conn.db, mongoose.mongo);
+//     gfs.collection('uploads');
+// });

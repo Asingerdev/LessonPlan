@@ -48,21 +48,19 @@ app.listen(PORT, () => {
 })
 
 // Create storage engine
-const mongoose = require('mongoose');
-const connectionString = 'mongodb://localhost/lessonPlan';
 
-const storage = new GridFsStorage({
-    url: connectionString,
-    file: (req, file) => {
-        return new Promise((resolve, reject) => {
-            const filename = file.originalname;
-            const fileInfo = {
-                filename: filename,
-                bucketName: 'uploads'
-            };
-            resolve(fileInfo);
-        });
-    }
-});
+// const storage = new GridFsStorage({
+//     url: connectionString,
+//     file: (req, file) => {
+//         return new Promise((resolve, reject) => {
+//             const filename = file.originalname;
+//             const fileInfo = {
+//                 filename: filename,
+//                 bucketName: 'uploads'
+//             };
+//             resolve(fileInfo);
+//         });
+//     }
+// });
 
-const upload = multer({ storage });
+// const upload = multer({ storage });

@@ -155,13 +155,14 @@ h1.home-text {
     text-align: center;
     font-size: 3rem;
     padding: 5px;
-    /* border-top: 4px solid #008B8B;
-    border-bottom: 4px solid #008B8B; */
-    border: 4px solid #89d8d3;
-    border-radius: 5px;
-    background-color: #89d8d3;
+    border-top: 4px solid #58cdb9;
+    border-bottom: 4px solid #58cdb9;
+    /* border: 4px solid #89d8d3;
+    border-radius: 5px; */
+    /* background-color: #89d8d3;
     border-image: linear-gradient(90deg, #89d8d3 20%, #58cdb9 74%);
     color: white;
+    font-weight: bold; */
 }
 
 @media (min-width: 30rem) {
@@ -259,7 +260,7 @@ button.add-student, button.add-song {
     border: 1px solid black;
     border-radius: 10px; 
     margin: 0 30px;
-    background-color: #aaacad;
+    background-color: lightgrey;
 }
 
 .song-card {
@@ -304,13 +305,13 @@ img.song-img {
     font-size: 18px;
 }
 
-button.student-music {
+p.student-music > button {
     padding: 8px;
     border: none;
     outline: 0;
     display: inline-block;
     color: white;
-    background-color: #000;
+    background-color: #008B8B;
     text-align: center;
     cursor: pointer;
     font-size: 18px;
