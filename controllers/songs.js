@@ -92,7 +92,7 @@ songs.delete('/:songId', async (req, res) => {
         const [deletedSongResponse, foundStudent] = await Promise.all([deleteSong, findStudent]);
         foundStudent.songs.remove(req.params.songId);
         await foundStudent.save();
-        console.log(foundStudent);
+        res.redirect('/students/' + req.params.id + '/songs');
     } catch (err) {
         console.log(err);
     }
