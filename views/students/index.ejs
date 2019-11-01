@@ -1,6 +1,7 @@
 <%- include("../partials/nav-2")%>
 
-
+<div class="banner-image">
+</div>
 <header class="students-header">
     <h1><%=teacher.name %>'s students</h1>
     <a href="/students/new"><button class="add-student">+ Add Student</button></a>
@@ -8,10 +9,12 @@
 <main class="student-content">
     <% for(let i = 0; i < students.length; i++) { %>
     <div class="student-card">
-        <h1 class="student-name"><%=students[i].name%></h1>
+        <div class="img-container">
+            <img class="student-img" src="<%=students[i].img%>">
+        </div>
         <!-- <p class="instrument"></p> -->
         <p class="student-music"><button
-                onclick="window.location.href='/students/<%=students[i]._id%>';">Profile</button></p>
+                onclick="window.location.href='/students/<%=students[i]._id%>';"><%=students[i].name%></button></p>
     </div>
     <% } %>
 </main>
