@@ -58,12 +58,13 @@ songs.get('/:songId', async (req, res) => {
     }
 })
 
+
 // Song edit page
 
 songs.get('/:songId/edit', async (req, res) => {
     try {
         const findSong = Song.findById(req.params.songId);
-        const findStudent = Student.findById = (req.params.id);
+        const findStudent = Student.findById(req.params.id);
         const [foundSong, foundStudent] = await Promise.all([findSong, findStudent]);
         res.render('songs/edit', {
             student: foundStudent,
@@ -76,8 +77,15 @@ songs.get('/:songId/edit', async (req, res) => {
 
 songs.put('/:songId', async (req, res) => {
     try {
-        const updatedSong = await Song.findByIdAndUpdate(req.params.songId, req.body, { new: true });
-        // res.redirect('/students/' + studentId + '/songs')
+        const updateSong = Song.findByIdAndUpdate(req.params.songId, req.body, { new: true });
+        const findStudent = Student.findOne({ 'songs': req.params.songId });
+        console.log(findStudent);
+        const [updatedSong, foundStudent] = await Promise.all([updateSong, findStudent]);
+        await updatedSong.save();
+        await foundStudent.save();
+        console.log(req.params.id);
+        console.log(req.params.songId);
+        res.redirect('/students/' + foundStudent._id + '/songs');
     } catch (err) {
         console.log(err);
     }
@@ -97,6 +105,7 @@ songs.delete('/:songId', async (req, res) => {
         console.log(err);
     }
 })
+
 
 
 module.exports = songs;
