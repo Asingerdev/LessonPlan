@@ -5,11 +5,10 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
-const PORT = 3000;
 require('dotenv').config();
 require('./db/db');
 
-const PORT = process.env.PORT
+PORT = process.env.PORT
 
 // Middleware
 app.use(session({
