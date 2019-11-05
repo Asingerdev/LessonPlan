@@ -8,7 +8,6 @@ const GridFsStorage = require('multer-gridfs-storage');
 require('dotenv').config();
 require('./db/db');
 
-PORT = process.env.PORT
 
 // Middleware
 app.use(session({
@@ -44,8 +43,8 @@ app.get('/', (req, res) => {
     })
 });
 
-app.listen(PORT, () => {
-    console.log(`running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`running on port ${process.env.PORT}`);
 })
 
 // Create storage engine
