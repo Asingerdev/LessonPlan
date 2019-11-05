@@ -6,8 +6,10 @@ const session = require('express-session');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const PORT = 3000;
+require('dotenv').config();
 require('./db/db');
 
+const PORT = process.env.PORT
 
 // Middleware
 app.use(session({
@@ -44,7 +46,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log('App is running on port: ', PORT);
+    console.log(`running on port ${PORT}`);
 })
 
 // Create storage engine

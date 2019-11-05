@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectionString = 'mongodb://localhost/lessonPlan';
+const connectionString = process.env.MONGODB_URI;
 const Grid = require('gridfs-stream');
 
 mongoose.connect(connectionString, {
