@@ -1,5 +1,7 @@
 # LessonPlan
 
+[LessonPlan](https://lit-reef-30613.herokuapp.com/)
+
 ## Introduction
 
 LessonPlan is a full-stack application that enables music teachers to prepare individualized lesson plans for students and keep track of their students' progress.
